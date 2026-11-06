@@ -1,0 +1,11 @@
+{
+  "name": "C_clifford_rotor",
+  "seed": 1,
+  "params": 3213955,
+  "steps": 6000,
+  "gpu_hours": 1.5057847091886731,
+  "best_val_psnr": 18.88378143310547,
+  "skipped_steps": 0,
+  "rollbacks": 0,
+  "device": "Tesla T4"
+}

@@ -1,0 +1,10 @@
+a,b,metric,median_diff,p,p_holm,a_short,b_short
+Clifford + matriz,Conv + matriz,PSNR,-0.3026390075683594,0.0,0.0,B,A
+Clifford + matriz,Conv + matriz,SSIM,-0.0099126696586608,0.0,0.0,B,A
+Clifford + matriz,Conv + matriz,LPIPS,0.00303765386343,1.2911470460621715e-88,3.873441138186514e-88,B,A
+Clifford + rotor,Conv + matriz,PSNR,-0.2641944885253906,0.0,0.0,C,A
+Clifford + rotor,Conv + matriz,SSIM,-0.0093719363212585,0.0,0.0,C,A
+Clifford + rotor,Conv + matriz,LPIPS,0.0062480866909027,2.745977595296075e-292,1.3729887976480377e-291,C,A
+Clifford + rotor,Clifford + matriz,PSNR,0.0416712760925293,1.4149246065690714e-15,2.829849213138143e-15,C,B
+Clifford + rotor,Clifford + matriz,SSIM,9.5367431640625e-07,0.8700450379851729,0.8700450379851729,C,B
+Clifford + rotor,Clifford + matriz,LPIPS,0.0031254813075065,1.5596644500290105e-113,6.238657800116041e-113,C,B

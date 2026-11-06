@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Prueba de Wilcoxon emparejada por par de vistas sobre la media entre semillas; $p$ corregido por Holm. $\Delta$ es la diferencia mediana del primer modelo respecto del segundo.}
+\label{tab:wilcoxon}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{llcc}
+\toprule
+Comparación & Métrica & $\Delta$ & $p$ \\
+\midrule
+B vs. A & PSNR & $-0.303$ & $<10^{-300}$ \\
+B vs. A & SSIM & $-0.010$ & $<10^{-300}$ \\
+B vs. A & LPIPS & $+0.003$ & $3.9\times10^{-88}$ \\
+C vs. A & PSNR & $-0.264$ & $<10^{-300}$ \\
+C vs. A & SSIM & $-0.009$ & $<10^{-300}$ \\
+C vs. A & LPIPS & $+0.006$ & $1.4\times10^{-291}$ \\
+C vs. B & PSNR & $+0.042$ & $2.8\times10^{-15}$ \\
+C vs. B & SSIM & $+0.000$ & 0.870 \\
+C vs. B & LPIPS & $+0.003$ & $6.2\times10^{-113}$ \\
+\bottomrule
+\end{tabular}
+\end{table}

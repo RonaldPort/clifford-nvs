@@ -1,0 +1,11 @@
+{
+  "name": "B_clifford_matrix",
+  "seed": 1,
+  "params": 3148163,
+  "steps": 6000,
+  "gpu_hours": 1.5239932890733083,
+  "best_val_psnr": 19.01884651184082,
+  "skipped_steps": 0,
+  "rollbacks": 0,
+  "device": "Tesla T4"
+}
