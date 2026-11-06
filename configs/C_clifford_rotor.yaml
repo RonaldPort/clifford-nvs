@@ -1,0 +1,8 @@
+# Propuesta: interacción de Clifford y pose como rotor de Cl(3,0) con transporte
+# del latente por producto sándwich.
+base: base.yaml
+name: C_clifford_rotor
+label: Clifford + rotor
+model:
+  block: clifford
+  pose: rotor

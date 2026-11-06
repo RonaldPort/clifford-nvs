@@ -1,0 +1,8 @@
+# Opcional: completa el diseño factorial 2×2 (bloque × codificación de pose).
+base: base.yaml
+name: D_conv_rotor
+label: Conv + rotor
+model:
+  block: conv
+  pose: rotor
+  mlp_ratio: 4.4

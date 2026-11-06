@@ -1,0 +1,7 @@
+# Ablación del bloque: interacción de Clifford sin FFN, pose como matriz [R|t].
+base: base.yaml
+name: B_clifford_matrix
+label: Clifford + matriz
+model:
+  block: clifford
+  pose: matrix

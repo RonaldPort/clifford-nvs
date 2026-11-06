@@ -1,0 +1,10 @@
+# Versiones mínimas; probado con Python 3.12 y las versiones indicadas en Colab (nov. 2026).
+torch>=2.1          # probado: 2.x con CUDA 12 (preinstalado en Colab)
+numpy>=1.24
+pillow>=10.0
+pyyaml>=6.0
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.8
+lpips==0.1.4
+gdown>=5.1

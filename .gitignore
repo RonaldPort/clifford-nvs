@@ -1,0 +1,14 @@
+# Datos y artefactos pesados
+data/processed/
+*.npz
+*.zip
+runs/
+runs_root/
+release/
+*.pt
+*.pt.tmp
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

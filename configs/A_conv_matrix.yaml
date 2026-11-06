@@ -1,0 +1,9 @@
+# Línea base: bloques convolucionales con FFN, pose como matriz [R|t].
+# mlp_ratio = 4.4 iguala el número de parámetros con la variante Clifford.
+base: base.yaml
+name: A_conv_matrix
+label: Conv + matriz
+model:
+  block: conv
+  pose: matrix
+  mlp_ratio: 4.4

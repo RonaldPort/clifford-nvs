@@ -1,0 +1,33 @@
+# Parámetros comunes a todos los experimentos. Cada configuración hereda de
+# este archivo con `base: base.yaml` y sobrescribe solo lo que cambia.
+
+data:
+  res: 64                     # resolución de entrenamiento y evaluación
+
+model:
+  dims: [48, 96, 144, 192]    # canales por nivel de la U-Net
+  depths: [2, 2, 3, 2]        # bloques por nivel (el último es el cuello de botella)
+  emb_dim: 128                # dimensión del embedding de pose
+  shifts: [1, 2, 4]           # desplazamientos de canal de la interacción de Clifford
+  drop_path: 0.05
+  ls_init: 0.01               # escala inicial de la rama residual
+
+train:
+  steps: 6000
+  batch: 64
+  lr: 1.0e-3
+  weight_decay: 0.05
+  warmup_frac: 0.05
+  grad_clip: 1.0
+  lpips_weight: 0.1           # pérdida = L1 + 0.1 · LPIPS(AlexNet)
+  amp: true
+  log_every: 100
+  val_every: 500
+  ckpt_every: 500             # checkpoint cada 500 pasos...
+  ckpt_minutes: 10            # ...o cada 10 minutos, lo que ocurra antes
+  max_rollbacks: 5            # restauraciones permitidas ante estados no finitos
+
+val:
+  n_objects: 50
+  n_targets: 8
+  src_view: 64
