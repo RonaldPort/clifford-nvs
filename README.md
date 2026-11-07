@@ -46,7 +46,8 @@ clifford-nvs/
 ├── notebooks/
 │   ├── 01_entrenamiento_colab.ipynb   flujo completo en Colab con guardado en Drive
 │   ├── 01_entrenamiento_colab_ejecutado.ipynb   la misma ejecución con sus salidas (registro del entrenamiento reportado)
-│   └── 02_demo_inferencia.ipynb       carga de pesos e inferencia de principio a fin
+│   ├── 02_demo_inferencia.ipynb       carga de pesos e inferencia de principio a fin
+│   └── 03_imagen_propia.ipynb         órbita a partir de una foto cualquiera de un auto
 ├── results/            tablas .tex, figuras .pdf, CSV y registros del artículo
 └── src/
     ├── data.py         preprocesado, muestreo de pares en GPU, protocolo de evaluación
@@ -57,6 +58,7 @@ clifford-nvs/
     ├── evaluate.py     evaluación en prueba, tablas y pruebas de Wilcoxon
     ├── figures.py      figuras del artículo
     ├── export.py       pesos publicables y muestra para la demostración
+    ├── infer_image.py  segmentación, estimación de la vista y órbita para una imagen propia
     └── utils.py        configuración, semillas, escritura atómica
 ```
 
@@ -112,6 +114,18 @@ python -m src.analysis --configs $CFGS --seeds 0 1 --work runs_root --out result
 ## Pesos
 
 Los pesos de cada modelo (semilla 0) y una muestra de cinco objetos de prueba se publican en <https://drive.google.com/drive/folders/1TXojt_WquDOaJTpMon-T-5yG6f7GzgNb>. El notebook `02_demo_inferencia.ipynb` los descarga y genera una órbita completa alrededor de un objeto. La muestra deriva de SRN Cars y se comparte con fines académicos bajo los términos de uso de ShapeNet.
+
+## Imagen propia
+
+`notebooks/03_imagen_propia.ipynb` lleva una foto cualquiera de un auto al formato de SRN Cars y sintetiza su órbita con los tres modelos. El auto se segmenta (canal alfa, [rembg](https://github.com/danielgatis/rembg) o umbral sobre el color del borde), su punto de vista se estima por IoU entre su silueta normalizada y las de los objetos de la muestra en las 251 vistas de la espiral de prueba, con y sin reflejo, y se encuadra sobre fondo blanco a 64×64 como aparece un auto de SRN en esa vista. Las poses objetivo son las de la espiral, así que $T_{rel}$ queda dentro de la distribución de entrenamiento. La misma tarea desde la terminal:
+
+```bash
+pip install "rembg[cpu]"    # opcional
+python -m src.infer_image --image foto.jpg --release release --out salida_imagen
+python -m src.infer_image --image foto.jpg --release release --view 84 --obj 0 --flip 1   # vista fijada a mano
+```
+
+Genera `candidatos.png` (entrada encuadrada, silueta y vistas de referencia más parecidas), `vistas.png` (modelos × ángulo relativo), `orbita.gif` y `resumen.json`. Por la simetría del auto, una vista y su reflejo de frente a atrás pueden tener siluetas parecidas; `candidatos.png` permite confirmar la elección. Los modelos solo vieron renders sintéticos: con fotos reales la forma sigue a la pose, pero el color y los detalles se promedian.
 
 ## Reproducibilidad
 
